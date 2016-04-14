@@ -5,7 +5,10 @@ var path = require('path');
 var concat = require('gulp-concat');
 var sequence = require('run-sequence');
 var del = require('del');
+var htmlmin = require('gulp-htmlmin');
+var template = require('gulp-angular-templatecache');
 var jshint = require('gulp-jshint');
+var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var compass = require('gulp-compass');
 var scsslint = require('gulp-scss-lint');
@@ -19,9 +22,16 @@ var js = {
     dest: buildDir,
     app: {
         name: appName + '.js',
+        nameMin: appName + '.min.js',
         files: [
             // on server need version 1.8.3+1
-            "./service.js",
+            "./component.js",
+        ]
+    },
+    templates: {
+        name: 'templates.js',
+        files: [
+            'templates/**/*.html',
         ]
     }
 };
@@ -57,25 +67,37 @@ gulp.task('css-min', function () {
 
 /************************************ js ********************************************/
 
-gulp.task('js', function() {
+gulp.task('js-template', function () {
+    return gulp.src(js.templates.files)
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(template(js.templates.name, {
+            module:     'ftv.components.popinGeneric.templates',
+            standalone: true,
+            root: '/popinGeneric/'
+        }))
+        .pipe(gulp.dest(js.dest));
+});
+
+gulp.task('js-module', function() {
     var files = js.app.files;
+    files.push(js.dest + '/' + js.templates.name);
 
     return gulp.src(files)
         .pipe(concat(js.app.name))
         .pipe(gulp.dest(js.dest));
 });
 
+gulp.task('js', function(callback) {
+    sequence('js-template', 'js-module', callback);
+});
+
 gulp.task('js-min', function() {
     return gulp.src(js.dest + '/' + js.app.name)
         .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest(js.dest));
-});
-
-/************************************ template ********************************************/
-
-gulp.task('templates', function() {
-   gulp.src('./templates/**/*')
-   .pipe(gulp.dest(buildDir + '/templates'));
 });
 
 /************************************ general ********************************************/
@@ -89,7 +111,7 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('build-common', function(callback) {
-    sequence('cleanup', 'css', 'js', 'templates', callback);
+    sequence('cleanup', 'css', 'js', callback);
 });
 
 gulp.task('build-dev', function(callback) {

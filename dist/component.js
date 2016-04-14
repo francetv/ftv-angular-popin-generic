@@ -1,4 +1,6 @@
-angular.module('ftv.components.popinGeneric', [])
+angular.module('ftv.components.popinGeneric', [
+    'ftv.components.popinGeneric.templates'
+])
 
 .factory('popinModalService', ['$document', '$compile', '$controller', '$http', '$rootScope', '$q', '$templateCache',
         function ($document, $compile, $controller, $http, $rootScope, $q, $templateCache) {
@@ -167,7 +169,7 @@ angular.module('ftv.components.popinGeneric', [])
 .service('popinGenericService', ['popinModalService', function(popinModalService) {
     this.showModal = function(options) {
         return popinModalService.showModal({
-            layoutUrl: "templates/index.html",
+            layoutUrl: "/popinGeneric/index.html",
             baseController: "popinGenericController",
             templateUrl: options.templateUrl,
             controller: options.controller,
@@ -181,3 +183,5 @@ angular.module('ftv.components.popinGeneric', [])
         close();
     };
 }]);
+
+angular.module("ftv.components.popinGeneric.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("/popinGeneric/index.html","<div ng-class=\"classes\" ng-click=\"close()\"><div class=\"ftvPopin__wrapper\" ng-click=\"stillOpen($event)\"><ng-include src=\"templateUrl\"></ng-include></div></div><div class=\"ftvPopinOverlay\"></div>");}]);

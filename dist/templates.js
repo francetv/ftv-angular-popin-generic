@@ -1,0 +1,1 @@
+angular.module("ftv.components.popinGeneric.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("/popinGeneric/index.html","<div ng-class=\"classes\" ng-click=\"close()\"><div class=\"ftvPopin__wrapper\" ng-click=\"stillOpen($event)\"><ng-include src=\"templateUrl\"></ng-include></div></div><div class=\"ftvPopinOverlay\"></div>");}]);
