@@ -1,0 +1,46 @@
+.ftvPopin {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 2000;
+    overflow: auto;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+    }
+
+    &__wrapper {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 25px;
+        border: 2px solid black;
+        background-color: $popin-bg;
+        z-index: 9999;
+        width: $popin-width;
+        height: $popin-height;
+        overflow: hidden;
+    }
+
+}
+
+.ftvPopinOverlay {
+    height: 110%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=70);
+    z-index: 1999;
+}
