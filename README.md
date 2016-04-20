@@ -6,7 +6,7 @@ Generic popin
 # Get sources
 
 ```
-git clone git@gitlab.ftven.net:team-infini/angular-popin-generic.git
+git clone git@gitlab.ftven.net:team-infini/ftv-angular-popin-generic.git 
 ```
 
 # Required dependencies
