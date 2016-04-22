@@ -1,7 +1,7 @@
 {
   "name": "ftv-angular-popin-generic",
   "version": "1.0.0",
-  "description": "France TV - Infini - Popin Generic",
+  "description": "Angular module to make popin easily. It provide a service to build popin with a basic style.",
   "license": "proprietary",
   "dependencies": {
   },
@@ -25,6 +25,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.ftven.net:team-infini/popin-generic.git"
+    "url": "git@gitlab.ftven.net:team-infini/ftv-angular-popin-generic.git"
   }
 }

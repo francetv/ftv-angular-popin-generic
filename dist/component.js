@@ -81,7 +81,7 @@ angular.module('ftv.components.popinGeneric', [
                             var inputs = {
                                 $scope: modalScope,
                                 close: function (result, delay) {
-                                    $rootScope.$emit('closePopInZoom');
+                                    $rootScope.$emit('close-popin');
                                     if (delay === undefined || delay === null) delay = 0;
                                     window.setTimeout(function () {
                                         //  Resolve the 'close' promise.
@@ -153,7 +153,7 @@ angular.module('ftv.components.popinGeneric', [
 
                         })
                         .then(function() {
-                            $rootScope.$emit('openPopInZoom');
+                            $rootScope.$emit('open-popin');
                         }, function (error) { // 'catch' doesn't work in IE8.
                             deferred.reject(error);
                         });
@@ -181,6 +181,11 @@ angular.module('ftv.components.popinGeneric', [
 .controller('popinGenericController', ['$scope', 'close', function ($scope, close) {
     $scope.close = function() {
         close();
+    };
+
+    // keep popin open when clicking in content.
+    $scope.stillOpen = function ($event) {
+        $event.stopPropagation();
     };
 }]);
 
