@@ -1,11 +1,13 @@
 # Ftv::Components::Popin generic
 
+This project is part of [francetv zoom open source projects](https://github.com/francetv/zoom-public) (iOS, Android and Angular).
+
 Angular module to make popin easily. It provide a service to build popin with a basic style.
 
 ## Get sources
 
 ```
-git clone git@gitlab.ftven.net:team-infini/ftv-angular-popin-generic.git 
+git clone git@github.com:francetv/ftv-angular-popin-generic.git 
 ```
 
 ## Required dependencies
@@ -110,6 +112,3 @@ http-server
 ```
 
 Open [demo](http://127.0.0.1:8080/demo.html)
-
----------------------------------------
-This project is part of [francetv zoom open source projects](https://gitlab.ftven.net/team-infini/zoom-public) (iOS, Android and Angular)
