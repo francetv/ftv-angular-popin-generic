@@ -12,7 +12,8 @@
     "node_modules",
     ".gitignore",
     ".jshintrc",
-    "component.js"
+    "component.js",
+    "gulpfile.js"
   ],
   "dependencies": {
     "angular": "angularjs#1.5.2"
