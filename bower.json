@@ -1,5 +1,6 @@
 {
   "name": "ftv-angular-popin-generic",
+  "version": "1.0.0",
   "description": "Angular module to make popin easily. It provide a service to build popin with a basic style.",
   "main": "dist/component.min.js",
   "authors": [
@@ -11,8 +12,7 @@
     "node_modules",
     ".gitignore",
     ".jshintrc",
-    "component.js",
-    "package.json"
+    "component.js"
   ],
   "dependencies": {
     "angular": "angularjs#1.5.2"
