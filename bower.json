@@ -1,0 +1,19 @@
+{
+  "name": "ftv-angular-popin-generic",
+  "description": "Angular module to make popin easily. It provide a service to build popin with a basic style.",
+  "main": "dist/component.min.js",
+  "authors": [
+    "France Télévisions"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/francetv/ftv-angular-popin-generic",
+  "ignore": [
+    "node_modules",
+    ".gitignore",
+    ".jshintrc",
+    "LICENSE",
+    "README.md"
+    "component.js",
+    "package.json"
+  ]
+}
