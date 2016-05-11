@@ -11,8 +11,6 @@
     "node_modules",
     ".gitignore",
     ".jshintrc",
-    "LICENSE",
-    "README.md",
     "component.js",
     "package.json"
   ],
