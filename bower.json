@@ -12,8 +12,11 @@
     ".gitignore",
     ".jshintrc",
     "LICENSE",
-    "README.md"
+    "README.md",
     "component.js",
     "package.json"
-  ]
+  ],
+  "dependencies": {
+    "angular": "angularjs#1.5.2"
+  }
 }
